@@ -1,0 +1,3 @@
+https://github.com/dsanchezre22dw/Cinema---David
+
+Inside the directory HW_Cinema/ex3, you will find the Test, and another folder named Classes, which has the classes Cinema and Movie.

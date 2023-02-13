@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Numbers{
 
     public static int generate1Num(int max, int min){
-        return (int) Math.floor(Math.random()*(max - min +1)) + min;
+        return (int)(Math.random()*(max - min +1)) + min;
     }
 
     public static List<Integer> generateNums(int max, int min, int amount){
@@ -47,12 +47,10 @@ public class Numbers{
         try {
             dos = new DataOutputStream(new FileOutputStream("src/Exercises1/ex2/files/" + file_name, true));
             for (Integer elem:nums){
-                dos.writeInt(elem);
+                add1Num(file_name, elem);
             }
         }catch (FileNotFoundException e){
             System.out.println("File not found");
-        }catch (IOException e){
-            System.out.println("IOException");
         }
 
         try{
@@ -65,16 +63,30 @@ public class Numbers{
     }
 
     public static Integer findInFile(String file_name, int p){
-        int ind = 0;
+        int ind = 0, result;
         DataInputStream dis = null;
 
         try {
             dis = new DataInputStream(new FileInputStream("src/Exercises1/ex2/files/" + file_name));
-            while (ind <= p-2){
+            while (dis.available() > 0 && ind < p-1){
                 dis.readInt();
                 ind++;
             }
-            return (Integer) dis.readInt();
+
+            if (p > 1){
+                result = dis.readInt();
+
+                if (ind >= p-1){
+                    return result;
+                }else{
+                    result = Integer.MIN_VALUE;
+                    return result;
+                }
+            }else{
+                System.out.print("Position not valid: ");;
+            }
+
+
 
         }catch (FileNotFoundException e){
             System.out.println("File not found");
@@ -92,7 +104,7 @@ public class Numbers{
             System.out.println("IOException");
         }
 
-        return -1;
+        return p;
     }
 
     public static void displayFile(DataInputStream dis){
@@ -133,7 +145,7 @@ public class Numbers{
         }
 
         //Display of the 6.number in "file1.bin"
-        System.out.println(findInFile("file1.bin", 6));
+        System.out.println(findInFile("file1.bin", 5));
 
         //Display of the last number in "file1.bin"
         try {

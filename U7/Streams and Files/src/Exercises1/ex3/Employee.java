@@ -31,6 +31,12 @@ public class Employee implements Serializable {
         this.mp.call(m);
     }
 
-    public void
+    public String getName() {
+        return this.name;
+    }
+
+    public MobilePhone getMp() {
+        return this.mp;
+    }
 
 }

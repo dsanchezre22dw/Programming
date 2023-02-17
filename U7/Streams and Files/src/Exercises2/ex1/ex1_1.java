@@ -3,24 +3,22 @@ package Exercises2.ex1;
 import java.io.*;
 import java.util.Scanner;
 
-public class ex1 {
+public class ex1_1 {
 
     public static void main(String[] args) {
 
-        FileWriter out = null;
-        FileWriter out2 = null;
-        FileReader in = null;
+        BufferedWriter out = null;
+        BufferedWriter out2 = null;
+        BufferedReader in = null;
         Scanner sc = new Scanner(System.in);
 
         try {
-            out = new FileWriter(new File("src/Exercises2/ex1/files/nums.bin"));
+            out = new BufferedWriter(new FileWriter(new File("src/Exercises2/ex1/files/nums.bin")));
 
-            for (int i = 1; i <= 4; i++){
+            for (int i = 1; i <= 5; i++){
                 System.out.println("Write a number");
                 out.write(Integer.toString(sc.nextInt()) + " ");
             }
-            System.out.println("Write a number");
-            out.write(Integer.toString(sc.nextInt()));
 
 
         }catch (FileNotFoundException a){
@@ -40,18 +38,18 @@ public class ex1 {
 
         try {
 
-            out2 = new FileWriter(new File("src/Exercises2/ex1/files/nums.txt"));
-            in = new FileReader(new File("src/Exercises2/ex1/files/nums.bin"));
+            out2 = new BufferedWriter(new FileWriter(new File("src/Exercises2/ex1/files/nums.txt")));
+            in = new BufferedReader(new FileReader(new File("src/Exercises2/ex1/files/nums.bin")));
 
-            int n = in.read();
-            while (n != -1){
-                if (n == 32){
-                    out2.write("\n");
-                }else{
-                    out2.write(n);
-                }
-                n = in.read();
+            String n = in.readLine();
+
+            String[] array = n.split(" ");
+
+            for (int i=0; i<array.length-1; i++){
+                out2.write(array[i]);
+                out2.newLine();
             }
+            out2.write(array[array.length-1]);
 
         }catch (FileNotFoundException a){
             System.out.println("File not found");

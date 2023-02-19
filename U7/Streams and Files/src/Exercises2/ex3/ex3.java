@@ -1,9 +1,9 @@
-package Exercises2.ex1;
+package Exercises2.ex3;
 
 import java.io.*;
 import java.util.Scanner;
 
-public class ex1 {
+public class ex3 {
 
     public static void main(String[] args) {
 

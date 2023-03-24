@@ -11,7 +11,12 @@ public class ex1 extends JFrame {
         JFrame frame = new JFrame("FrameDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        String[] ages ={"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
+        String[] ages = new String[20];
+
+        for (int i = 1; i <= 20; i++){
+            ages[i-1] = ""+i;
+        }
+
         JComboBox comboage = new JComboBox(ages);
         comboage.setPreferredSize(new Dimension(105,100));
 
@@ -24,7 +29,7 @@ public class ex1 extends JFrame {
         frame.getContentPane().add(comboage, BorderLayout.WEST);
 
         frame.getContentPane().add(radiobutton1, BorderLayout.EAST);
-        frame.getContentPane().add(radiobutton2, BorderLayout.EAST);
+        frame.getContentPane().add(radiobutton2, BorderLayout.SOUTH);
 
 
 

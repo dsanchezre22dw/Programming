@@ -32,7 +32,7 @@ public class DBManagement {
                 System.out.println(people.get(i).toString());
             }
 
-            insertPeople();
+            //insertPeople();
 
         }catch (ClassNotFoundException e){
             System.out.println("Class not found");
